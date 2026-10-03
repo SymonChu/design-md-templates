@@ -46,9 +46,13 @@ upstream stays meaningful.
   upstream's older numbered-section format — upstream itself runs 5 shapes.
 - Every body is verbatim upstream, so `diff` against a fresh clone surfaces only real
   upstream drift — no local rewrites to reconcile.
-- To re-sync: `git clone --depth 1 https://github.com/VoltAgent/awesome-design-md`
-  then diff `design-md/<slug>/DESIGN.md` against the body of `templates/<slug>.md`
-  (everything after the Notes block).
+- To re-sync: `git clone --depth 1 https://github.com/VoltAgent/awesome-design-md`,
+  then run `scripts/sync-templates-from-upstream.py` (dry-run by default; `--apply`
+  rewrites in place while keeping each file's Notes block). Since a body is verbatim
+  upstream, a diff against a fresh clone shows only real upstream drift.
+- `scripts/push-templates-to-github.py` publishes the folder as one commit via the
+  Git Data API — only needed when `git push` can't reach github.com.
+- Published copy: https://github.com/SymonChu/design-md-templates
 
 ## How to Use
 
