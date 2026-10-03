@@ -42,8 +42,10 @@ font substitution) + the upstream `DESIGN.md` body **verbatim** — so `diff` ag
 upstream stays meaningful.
 
 - Snapshot: 74 of 74 upstream entries, upstream commit `f6961238` (2026-10-03)
-- 56 files carry the upstream YAML frontmatter (Stitch DESIGN.md spec); 18 are still
-  on upstream's older numbered-section format — upstream itself runs 5 shapes.
+- 64 files carry the upstream YAML frontmatter (Stitch DESIGN.md spec), 10 are on
+  upstream's older numbered-section format — upstream itself runs 5 shapes.
+- Every body is verbatim upstream, so `diff` against a fresh clone surfaces only real
+  upstream drift — no local rewrites to reconcile.
 - To re-sync: `git clone --depth 1 https://github.com/VoltAgent/awesome-design-md`
   then diff `design-md/<slug>/DESIGN.md` against the body of `templates/<slug>.md`
   (everything after the Notes block).
